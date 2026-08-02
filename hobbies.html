@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hobbies — About Me</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="embers" id="embers"></div>
+
+<main class="stage">
+
+  <div class="signpost">
+    <a class="back" href="index.html">&#8592; BACK TO CAMP</a>
+    <nav>
+      <a href="education.html">Education</a>
+      <a href="hobbies.html" class="current">Hobbies</a>
+      <a href="sports.html">Sports</a>
+      <a href="contacts.html">Contacts</a>
+    </nav>
+  </div>
+
+  <div class="page-title">
+    <div class="eyebrow">CHAPTER TWO</div>
+    <h1>Hobbies</h1>
+  </div>
+
+  <section class="poster">
+    <span class="tape tl"></span><span class="tape tr"></span>
+    <h2>What Fills the Saddlebags</h2>
+    <div class="poster-sub">— the pastimes a cowpoke keeps close 'round the campfire —</div>
+
+    <div class="media-grid">
+      <div>
+        <div class="frame" style="padding:5px; border-width:6px;">
+          <div class="photo-slot portrait">
+            <!-- 🖼️ Replace "hobby-one.jpg" with your actual photo file name -->
+            <img src="HorsePic.jpg" alt="Hobby one photo" class="photo-img">
+          </div>
+        </div>
+      </div>
+
+      <div class="reel-frame">
+        <div class="video-slot portrait">
+          <video src="HorseRiding.mp4" controls autoplay muted loop playsinline class="video-el"></video>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-grid">
+      <div style="max-width:100%;">
+        <div class="frame">
+          <div class="photo-slotLandscape">
+            <!-- 🖼️ Replace "Medal1.jpg" with your actual photo file name -->
+            <img src="HorseLandscape.jpg" alt="Medals and certificates photo" class="photo-img">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <span class="when">SINCE [Year]</span>
+      <h3>[Hobby One — e.g. Guitar Pickin']</h3>
+      <p>Tell the tale of how this pastime rode into your life. What drew you to it, and what keeps you comin' back to it evenin' after evenin'?</p>
+    </div>
+
+    <div class="entry">
+      <span class="when">SINCE [Year]</span>
+      <h3>[Hobby Two — e.g. Trail Photography]</h3>
+      <p>Describe your favorite moments doing this — a project you're proud of, or a place it's taken you.</p>
+    </div>
+
+    <div class="entry">
+      <span class="when">SINCE [Year]</span>
+      <h3>[Hobby Three — e.g. Campfire Cookin']</h3>
+      <p>Share a specialty, a recipe, or why this hobby means somethin' to you.</p>
+    </div>
+
+
+
+  </section>
+
+</main>
+
+<script>
+  const layer = document.getElementById('embers');
+  for(let i=0;i<16;i++){
+    const s = document.createElement('span');
+    s.style.left = (Math.random()*100)+'vw';
+    const size = 2 + Math.random()*3;
+    s.style.width = size+'px'; s.style.height = size+'px';
+    s.style.animationDuration = (6+Math.random()*8)+'s';
+    s.style.animationDelay = (Math.random()*10)+'s';
+    layer.appendChild(s);
+  }
+</script>
+
+</body>
+</html>

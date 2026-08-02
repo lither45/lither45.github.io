@@ -1,0 +1,732 @@
+/* ============================================================
+   ABOUT ME — A COWBOY'S TALE
+   Shared saloon/wanted-poster design system
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Rye&family=Special+Elite&family=IM+Fell+English+SC&display=swap');
+
+:root{
+  --sky-top:#ff9d52;
+  --sky-mid:#c1440e;
+  --sky-low:#5c1f10;
+  --night:#1a0f08;
+  --wood-dark:#3b2a1a;
+  --wood-mid:#6b4423;
+  --wood-light:#8b5a2b;
+  --plank:#734b28;
+  --parchment:#f0dcae;
+  --parchment-dark:#e0c286;
+  --parchment-shadow:#c9a86a;
+  --rust:#c1440e;
+  --rust-dark:#8f3209;
+  --gold:#d4a017;
+  --ink:#2b1a0f;
+  --ink-soft:#4a3620;
+  --rope:#a9793f;
+
+  --font-display:'Rye', serif;
+  --font-body:'Special Elite', 'Courier New', monospace;
+  --font-caption:'IM Fell English SC', serif;
+}
+
+*{ box-sizing:border-box; }
+
+html,body{
+  margin:0;
+  padding:0;
+  min-height:100vh;
+  background:var(--night);
+  font-family:var(--font-body);
+  color:var(--ink);
+}
+
+body{
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,157,82,.25), transparent 60%),
+    linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 38%, var(--sky-low) 62%, var(--night) 100%);
+  background-attachment:fixed;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* ---- distant desert silhouette, drawn once, fixed on every page ---- */
+body::before{
+  content:"";
+  position:fixed;
+  left:0; right:0; bottom:0;
+  height:38vh;
+  background:
+    radial-gradient(circle at 12% 40%, transparent 0 6%, var(--night) 7% 8%, transparent 9%) no-repeat,
+    linear-gradient(180deg, transparent, var(--night) 70%);
+  z-index:0;
+  pointer-events:none;
+}
+
+/* rising embers / dust motes */
+.embers{ position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+.embers span{
+  position:absolute;
+  bottom:-10px;
+  width:4px; height:4px;
+  border-radius:50%;
+  background:var(--gold);
+  opacity:.75;
+  box-shadow:0 0 6px 2px rgba(212,160,23,.6);
+  animation:rise linear infinite;
+}
+@keyframes rise{
+  0%{ transform:translateY(0) translateX(0); opacity:0; }
+  10%{ opacity:.8; }
+  100%{ transform:translateY(-105vh) translateX(20px); opacity:0; }
+}
+
+/* ============================================================
+   LAYOUT SHELL
+   ============================================================ */
+.stage{
+  position:relative;
+  z-index:1;
+  max-width:1100px;
+  margin:0 auto;
+  padding:32px 20px 80px;
+  min-height:100vh;
+}
+
+/* ============================================================
+   HOME / MAIN MENU
+   ============================================================ */
+.title-wrap{
+  text-align:center;
+  margin:26px 0 46px;
+}
+
+.eyebrow{
+  font-family:var(--font-caption);
+  letter-spacing:6px;
+  color:var(--parchment);
+  font-size:.85rem;
+  opacity:.85;
+}
+
+.big-title{
+  font-family:var(--font-display);
+  font-size:clamp(2.6rem, 8vw, 5.2rem);
+  color:var(--parchment);
+  text-shadow:
+    0 0 2px #000,
+    3px 3px 0 var(--ink),
+    6px 6px 14px rgba(0,0,0,.55);
+  margin:6px 0;
+  line-height:1;
+}
+
+.subtitle{
+  font-family:var(--font-body);
+  color:var(--parchment-dark);
+  font-size:1.05rem;
+  letter-spacing:2px;
+}
+
+.rope-divider{
+  width:min(520px,80%);
+  margin:26px auto;
+  height:14px;
+  position:relative;
+}
+.rope-divider::before{
+  content:"";
+  position:absolute; inset:0;
+  top:50%; height:4px; transform:translateY(-50%);
+  background:repeating-linear-gradient(90deg, var(--rope) 0 10px, #8a5f30 10px 20px);
+  border-radius:4px;
+  box-shadow:0 2px 3px rgba(0,0,0,.5);
+}
+.rope-divider::after{
+  content:"★";
+  position:absolute; left:50%; top:50%;
+  transform:translate(-50%,-50%);
+  color:var(--gold);
+  background:var(--night);
+  padding:0 10px;
+}
+
+/* ---- hero circular portrait ---- */
+.hero-portrait{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  margin:0 0 40px;
+}
+
+/* ============================================================
+   📐 CIRCLE PORTRAIT SIZE — edit here to change the size of the
+   round photo on the home page. Keep width and height equal to
+   keep it a perfect circle — this frame is always circular, not
+   suited to landscape photos (those crop from the center).
+   ============================================================ */
+.portrait-frame{
+  width:min(260px, 55vw);
+  height:min(260px, 55vw);
+  border-radius:50%;
+  padding:10px;
+  background:
+    linear-gradient(180deg, var(--wood-light), var(--wood-dark));
+  border:5px solid var(--ink);
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,.15),
+    inset 0 -6px 10px rgba(0,0,0,.4),
+    0 10px 0 var(--ink),
+    0 18px 28px rgba(0,0,0,.55);
+  position:relative;
+}
+.portrait-frame::before{ /* rope trim ring */
+  content:"";
+  position:absolute; inset:-3px;
+  border-radius:50%;
+  border:3px dashed var(--rope);
+  opacity:.65;
+  pointer-events:none;
+}
+
+.portrait-slot{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:transparent;
+  border:2px dashed var(--ink);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-text{
+  text-align:center;
+  max-width:520px;
+  background:rgba(240,220,174,.14);
+  border:1px dashed rgba(240,220,174,.4);
+  border-radius:8px;
+  padding:16px 24px;
+}
+.hero-text .hero-name{
+  font-family:var(--font-display);
+  font-size:1.5rem;
+  color:var(--parchment);
+  letter-spacing:2px;
+  margin:0 0 6px;
+  text-shadow:2px 2px 0 var(--ink);
+}
+.hero-text .hero-tagline{
+  font-family:var(--font-body);
+  color:var(--parchment-dark);
+  font-size:.9rem;
+  letter-spacing:1px;
+  margin:0;
+}
+
+/* menu of wooden signs — compact row beneath the portrait */
+.menu{
+  list-style:none;
+  margin:0 auto;
+  padding:0;
+  display:flex;
+  flex-flow:row wrap;
+  justify-content:center;
+  gap:14px;
+  max-width:640px;
+}
+
+.menu a{
+  display:block;
+  text-decoration:none;
+  text-align:center;
+  font-family:var(--font-display);
+  font-size:1.15rem;
+  letter-spacing:2px;
+  color:var(--parchment);
+  padding:12px 20px;
+  background:
+    linear-gradient(180deg, var(--wood-light), var(--wood-mid) 55%, var(--wood-dark));
+  border:3px solid var(--ink);
+  border-radius:6px;
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,.15),
+    inset 0 -4px 8px rgba(0,0,0,.4),
+    0 5px 0 var(--ink),
+    0 9px 12px rgba(0,0,0,.5);
+  position:relative;
+  transform:rotate(var(--tilt,0deg));
+  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.menu li{ flex:1 1 130px; max-width:200px; }
+.menu li:nth-child(1) a{ --tilt:-1.2deg; }
+.menu li:nth-child(2) a{ --tilt:1deg; }
+.menu li:nth-child(3) a{ --tilt:-0.8deg; }
+.menu li:nth-child(4) a{ --tilt:1.3deg; }
+
+.menu a::before{
+  content:"";
+  position:absolute; top:8px; left:8px; right:8px; bottom:8px;
+  border:1px dashed rgba(240,220,174,.35);
+  border-radius:3px;
+  pointer-events:none;
+}
+.menu a .tag{
+  display:block;
+  font-family:var(--font-caption);
+  font-size:.62rem;
+  letter-spacing:2px;
+  color:var(--gold);
+  margin-top:3px;
+}
+
+.menu a:hover, .menu a:focus-visible{
+  transform:rotate(0deg) translateY(-3px) scale(1.03);
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,.2),
+    inset 0 -4px 8px rgba(0,0,0,.4),
+    0 6px 0 var(--ink),
+    0 14px 18px rgba(0,0,0,.55);
+  filter:brightness(1.08);
+  outline:none;
+}
+
+.menu a:active{ transform:translateY(2px); }
+
+/* nail heads on sign corners */
+.menu a::after{
+  content:"";
+  position:absolute;
+  width:10px; height:10px;
+  top:6px; left:6px;
+  background:radial-gradient(circle at 35% 30%, #eee, #777 60%, #333);
+  border-radius:50%;
+  box-shadow:0 0 0 1px rgba(0,0,0,.4);
+}
+
+.footer-note{
+  text-align:center;
+  margin-top:50px;
+  color:var(--parchment-dark);
+  font-family:var(--font-caption);
+  letter-spacing:2px;
+  font-size:.85rem;
+  opacity:.8;
+}
+
+/* ============================================================
+   SUB-PAGE HEADER / SIGNPOST NAV
+   ============================================================ */
+.signpost{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:14px 18px;
+  background:linear-gradient(180deg, var(--wood-mid), var(--wood-dark));
+  border:3px solid var(--ink);
+  border-radius:8px;
+  box-shadow:0 6px 0 var(--ink), 0 10px 16px rgba(0,0,0,.5);
+  margin-bottom:34px;
+}
+
+.signpost .back{
+  font-family:var(--font-caption);
+  letter-spacing:2px;
+  color:var(--parchment);
+  text-decoration:none;
+  border:2px solid var(--gold);
+  border-radius:40px;
+  padding:8px 16px;
+  font-size:.85rem;
+  transition:background .15s ease, color .15s ease;
+}
+.signpost .back:hover{ background:var(--gold); color:var(--ink); }
+
+.signpost nav{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.signpost nav a{
+  font-family:var(--font-body);
+  font-size:.8rem;
+  letter-spacing:1px;
+  color:var(--parchment-dark);
+  text-decoration:none;
+  padding:6px 10px;
+  border-bottom:2px solid transparent;
+}
+.signpost nav a.current{ color:var(--gold); border-color:var(--gold); }
+.signpost nav a:hover{ color:var(--parchment); border-color:var(--parchment-dark); }
+
+.page-title{
+  text-align:center;
+  margin-bottom:8px;
+}
+.page-title .eyebrow{ color:var(--gold); }
+.page-title h1{
+  font-family:var(--font-display);
+  font-size:clamp(2.2rem,6vw,3.6rem);
+  color:var(--parchment);
+  text-shadow:2px 2px 0 var(--ink), 5px 5px 10px rgba(0,0,0,.5);
+  margin:4px 0 0;
+}
+
+/* ============================================================
+   WANTED POSTER (parchment content card)
+   ============================================================ */
+.poster{
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,.02) 0 2px, transparent 2px 4px),
+    var(--parchment);
+  border:2px solid var(--parchment-shadow);
+  outline:10px solid var(--wood-dark);
+  outline-offset:-2px;
+  border-radius:4px;
+  padding:34px clamp(18px,4vw,50px) 40px;
+  margin-bottom:40px;
+  position:relative;
+  box-shadow:0 18px 40px rgba(0,0,0,.45);
+}
+.poster::before{ /* torn/aged corner */
+  content:"";
+  position:absolute; top:-10px; right:-10px;
+  width:60px; height:60px;
+  background:radial-gradient(circle at 30% 30%, rgba(0,0,0,.12), transparent 70%);
+  pointer-events:none;
+}
+.poster h2{
+  font-family:var(--font-display);
+  color:var(--ink);
+  font-size:clamp(1.5rem,4vw,2.1rem);
+  text-align:center;
+  letter-spacing:2px;
+  margin:0 0 6px;
+}
+.poster .poster-sub{
+  text-align:center;
+  font-family:var(--font-caption);
+  color:var(--ink-soft);
+  letter-spacing:3px;
+  font-size:.85rem;
+  margin-bottom:26px;
+}
+.poster p, .poster li{
+  line-height:1.7;
+  color:var(--ink-soft);
+  font-size:1rem;
+}
+.poster h3{
+  font-family:var(--font-display);
+  color:var(--rust-dark);
+  font-size:1.3rem;
+  letter-spacing:1px;
+  margin:0 0 4px;
+  border-bottom:2px dashed var(--parchment-shadow);
+  padding-bottom:6px;
+}
+.entry{ margin-bottom:28px; }
+.entry:last-child{ margin-bottom:0; }
+.entry .when{
+  display:inline-block;
+  font-family:var(--font-caption);
+  color:var(--rust);
+  letter-spacing:2px;
+  font-size:.8rem;
+  margin-bottom:6px;
+}
+
+/* small school-logo placeholder, sits beside the entry heading */
+.entry-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:4px;
+}
+.entry-head .heading{ flex:1; }
+.entry-head .heading h3{ margin-bottom:0; }
+/* ============================================================
+   📐 LOGO SIZE — edit here to change the size of the small
+   school-logo boxes on the education page. width and height
+   set the box size directly (in pixels).
+   ============================================================ */
+.school-logo{
+  flex:none;
+  width:56px;
+  height:56px;
+  border-radius:8px;
+  background:transparent;
+  border:2px dashed var(--ink);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+
+/* tape corners on the poster */
+.tape{
+  position:absolute;
+  width:70px; height:26px;
+  background:rgba(240,220,174,.55);
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 3px 6px rgba(0,0,0,.25);
+}
+.tape.tl{ top:-12px; left:24px; transform:rotate(-8deg); }
+.tape.tr{ top:-12px; right:24px; transform:rotate(7deg); }
+
+/* ============================================================
+   MEDIA — photo frames & video placeholders (kept LARGE / visible)
+   ============================================================ */
+.media-grid{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-start;
+  justify-content:center;
+  gap:20px;
+  margin:30px 0 60px;
+}
+.media-grid > div{
+  flex:1 1 300px;
+  max-width:420px;
+}
+/* a reel-frame placed inside a media-grid shouldn't carry its
+   own extra top/bottom margin — it would sit off-line from a
+   photo frame next to it, which has no such margin */
+.media-grid > .reel-frame{
+  margin:0;
+  flex:1 1 300px;
+  max-width:420px;
+}
+
+
+.frame{
+  background:linear-gradient(180deg, var(--wood-light), var(--wood-dark));
+  border:4px solid var(--ink);
+  border-radius:8px;
+  padding:5px;
+  box-shadow:0 10px 0 var(--ink), 0 16px 24px rgba(0,0,0,.4);
+}
+
+/* ============================================================
+   📐 PHOTO FRAME SIZE — edit here to change the shape/size
+   of the two photo frames on each page (education, hobbies, sports, contacts).
+
+   - aspect-ratio: controls the SHAPE of the frame.
+       4/5   = portrait (tall)  ← current default
+       1/1   = square
+       16/9  = landscape (wide) ← use this for landscape photos
+       3/2   = classic landscape photo ratio
+   - min-height: the smallest height the frame will ever be,
+       regardless of screen width. Lower this if a landscape
+       frame looks too tall on small screens.
+   ============================================================ */
+.photo-slot{
+  width:100%;
+  min-height:320px;
+  aspect-ratio:4/5;
+  background:transparent;
+  border:2px dashed var(--ink);
+  border-radius:4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+
+/* ============================================================
+   📐 LANDSCAPE PHOTO FRAME — same as .photo-slot above, but
+   fixed to a 16/9 wide shape for landscape photos. Adjust
+   aspect-ratio or min-height here the same way as .photo-slot.
+   ============================================================ */
+.photo-slotLandscape{
+  width:100%;
+  min-height: 0%;
+  aspect-ratio:16/9;
+  background:transparent;
+  border:2px dashed var(--ink);
+  border-radius:4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.frame-label{
+  text-align:center;
+  font-family:var(--font-body);
+  color:var(--parchment);
+  font-size:.85rem;
+  margin-top:10px;
+  letter-spacing:1px;
+}
+
+/* full-width video placeholder — an old western "picture show" screen */
+.reel-frame{
+  margin:34px 0;
+  background:linear-gradient(180deg, var(--wood-mid), var(--wood-dark));
+  border:6px solid var(--ink);
+  border-radius:10px;
+  padding:5px;
+  box-shadow:0 12px 0 var(--ink), 0 20px 30px rgba(0,0,0,.5);
+}
+
+/* ============================================================
+   📐 PORTRAIT VIDEO — add class="video-slot portrait" in the
+   HTML (alongside the existing "video-slot" class) to switch
+   that one video box to a tall phone-style shape instead of
+   the default landscape box.
+   ============================================================ */
+.video-slot.portrait{
+  aspect-ratio:9/16;
+  min-height:0;
+  max-width:420px;
+  margin:0 auto;
+}
+
+/* ============================================================
+   📐 PORTRAIT PHOTO (to match a portrait video) — add
+   class="photo-slot portrait" in the HTML to switch that one
+   photo to the exact same 9/16 tall shape as a portrait video,
+   so the two line up as matching sizes side by side.
+   ============================================================ */
+.photo-slot.portrait{
+  aspect-ratio:9/16;
+  min-height:0;
+  max-width:420px;
+  margin:0 auto;
+}
+
+/* ============================================================
+   📐 SIDE-BY-SIDE VIDEOS — wrap two or more .reel-frame blocks
+   in a <div class="video-row"> ... </div> to lay them out next
+   to each other instead of stacked. Automatically drops to a
+   single column on narrow screens. "gap" controls the spacing
+   between them.
+   ============================================================ */
+.video-row{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:24px;
+  margin:34px 0;
+}
+.video-row .reel-frame{
+  flex:1 1 280px;
+  max-width:420px;
+  margin:0;
+}
+/* ============================================================
+   📐 VIDEO FRAME SIZE — edit here to change the size/shape of
+   every video box (education, hobbies, sports, contacts).
+
+   - min-height: current minimum height of the box (400px).
+   - For a strict landscape 16:9 video frame instead, replace
+     min-height with:  aspect-ratio:16/9;
+   ============================================================ */
+.video-slot{
+  width:100%;
+  min-height:400px;
+  background:transparent;
+  border:1px solid #000;
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+
+
+/* badge used on contact page */
+.badge{
+  width:150px; height:150px;
+  margin:0 auto 20px;
+  position:relative;
+  display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(circle at 35% 30%, #f3d98a, var(--gold) 55%, var(--rust-dark) 100%);
+  clip-path:polygon(50% 0%,61% 10%,80% 2%,84% 20%,100% 25%,92% 42%,100% 58%,84% 63%,82% 82%,64% 76%,50% 92%,36% 76%,18% 82%,16% 63%,0% 58%,8% 42%,0% 25%,16% 20%,20% 2%,39% 10%);
+  box-shadow:0 8px 18px rgba(0,0,0,.5);
+}
+.badge span{
+  font-family:var(--font-display);
+  color:var(--ink);
+  font-size:.85rem;
+  letter-spacing:1px;
+  text-align:center;
+  line-height:1.1;
+}
+
+.contact-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:16px;
+  max-width:520px;
+  margin:0 auto;
+}
+.contact-list li{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  background:rgba(255,255,255,.35);
+  border:1px dashed var(--parchment-shadow);
+  border-radius:6px;
+  padding:14px 18px;
+  font-size:1rem;
+}
+.contact-list li .icon{
+  width:34px; height:34px;
+  flex:none;
+  fill:var(--rust-dark);
+}
+.contact-list li .lbl{
+  font-family:var(--font-caption);
+  letter-spacing:1px;
+  color:var(--ink-soft);
+  display:block;
+  font-size:.75rem;
+}
+.contact-list li .val{
+  font-weight:bold;
+}
+
+@media (max-width:560px){
+  .signpost{ flex-direction:column; align-items:stretch; text-align:center; }
+  .signpost nav{ justify-content:center; }
+}
+
+/* ============================================================
+   MEDIA — just type the file name into the src="" attribute
+   in the HTML. Nothing here needs to change.
+
+   📐 object-fit controls how a photo/video fills its frame:
+     cover   = fills the frame completely, cropping the edges
+               (good default — works for landscape or portrait photos)
+     contain = shrinks the whole image to fit inside without
+               cropping (may leave empty space on two sides)
+   ============================================================ */
+.photo-img,
+.portrait-img,
+.video-el{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:inherit;
+  display:block;
+}
+.logo-img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:6px;
+  border-radius:inherit;
+  display:block;
+}

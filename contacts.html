@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacts — About Me</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="embers" id="embers"></div>
+
+<main class="stage">
+
+  <div class="signpost">
+    <a class="back" href="index.html">&#8592; BACK TO CAMP</a>
+    <nav>
+      <a href="education.html">Education</a>
+      <a href="hobbies.html">Hobbies</a>
+      <a href="sports.html">Sports</a>
+      <a href="contacts.html" class="current">Contacts</a>
+    </nav>
+  </div>
+
+  <div class="page-title">
+    <div class="eyebrow">FINAL CHAPTER</div>
+    <h1>Contacts</h1>
+  </div>
+
+  <section class="poster">
+    <span class="tape tl"></span><span class="tape tr"></span>
+
+    <div class="badge"><span>SHERIFF'S<br>OFFICE</span></div>
+
+    <h2>Send Word by Wire</h2>
+    <div class="poster-sub">— if you'd like to reach this rider, leave word below —</div>
+
+    <div class="media-grid">
+      <div>
+        <div class="frame">
+          <div class="photo-slot">
+            <!-- 🖼️ Replace "portrait.jpg" with your actual photo file name -->
+            <img src="MiniHorse.jpg" alt="Portrait photo" class="photo-img">
+          </div>
+        </div>
+      </div>
+
+      <ul class="contact-list">
+        <li>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg>
+          <div><span class="lbl">EMAIL</span><span class="val">keithdesot001@gmail.com</span></div>
+        </li>
+        <li>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.6 21 3 13.4 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.3.2 2.5.57 3.6a1 1 0 0 1-.25 1z"/></svg>
+          <div><span class="lbl">PHONE</span><span class="val">09615755625</span></div>
+        </li>
+        <li>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20m0 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5m0 14a7.5 7.5 0 0 1-6-3c0-2 4-3.1 6-3.1s6 1.1 6 3.1a7.5 7.5 0 0 1-6 3z"/></svg>
+          <div><a href="https://www.facebook.com/keithreignzyril.desot"><span class="lbl">SOCIAL</span><span class="val">www.facebook.com/keithreignzyril.desot</span></a></div>
+        </li>
+        <li>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-4-3-7-7-7m0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+          <div><span class="lbl">LOCATION</span><span class="val">Baguio City, Philippines</span></div>
+        </li>
+      </ul>
+    </div>
+
+
+    </div>
+  </section>
+
+</main>
+
+<script>
+  const layer = document.getElementById('embers');
+  for(let i=0;i<16;i++){
+    const s = document.createElement('span');
+    s.style.left = (Math.random()*100)+'vw';
+    const size = 2 + Math.random()*3;
+    s.style.width = size+'px'; s.style.height = size+'px';
+    s.style.animationDuration = (6+Math.random()*8)+'s';
+    s.style.animationDelay = (Math.random()*10)+'s';
+    layer.appendChild(s);
+  }
+</script>
+
+</body>
+</html>

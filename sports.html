@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sports — About Me</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="embers" id="embers"></div>
+
+<main class="stage">
+
+  <div class="signpost">
+    <a class="back" href="index.html">&#8592; BACK TO CAMP</a>
+    <nav>
+      <a href="education.html">Education</a>
+      <a href="hobbies.html">Hobbies</a>
+      <a href="sports.html" class="current">Sports</a>
+      <a href="contacts.html">Contacts</a>
+    </nav>
+  </div>
+
+  <div class="page-title">
+    <div class="eyebrow">CHAPTER THREE</div>
+    <h1>Sports</h1>
+  </div>
+
+  <section class="poster">
+    <span class="tape tl"></span><span class="tape tr"></span>
+    <h2>Rodeo &amp; Rough Ridin'</h2>
+    <div class="poster-sub">— the games and grit that built the stamina —</div>
+
+    <div class="video-row">
+      <div class="reel-frame">
+        <div class="video-slot portrait">
+          <video src="sepak.mp4" controls autoplay muted loop playsinline class="video-el"></video>
+        </div>
+      </div>
+
+      <div class="reel-frame">
+        <div class="video-slot portrait">
+          <video src="sepak2.mp4" controls autoplay muted loop playsinline class="video-el"></video>
+        </div>
+      </div>
+    </div>
+  
+    <div class="media-grid">
+      <div>
+        <div class="frame">
+          <div class="photo-slotLandscape">
+            <!-- 🖼️ Replace "Medal1.jpg" with your actual photo file name -->
+            <img src="Medal1.jpg" alt="Medals and certificates photo" class="photo-img">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="frame">
+          <div class="photo-slotLandscape">
+            <!-- 🖼️ Replace "Medal2.jpg" with your actual photo file name -->
+            <img src="Medal2.jpg" alt="Medals and certificates photo" class="photo-img">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <span class="when">[Year] – [Year]</span>
+      <h3>[Sport One — e.g. Rodeo Ridin']</h3>
+      <p>Describe your role, position, or discipline. Note a personal best, a hard-earned lesson, or a match you'll never forget.</p>
+    </div>
+
+    <div class="entry">
+      <span class="when">[Year] – [Year]</span>
+      <h3>[Sport Two — e.g. Trail Runnin']</h3>
+      <p>Share the milestones — a race finished, a record beaten, or simply why this sport keeps you comin' back to the arena.</p>
+    </div>
+
+    <div class="entry">
+      <span class="when">ACHIEVEMENTS</span>
+      <h3>Trophies &amp; Honors</h3>
+      <p>[List any medals, championships, MVP titles, or personal records earned along the way.]</p>
+    </div>
+
+
+  </section>
+
+</main>
+
+<script>
+  const layer = document.getElementById('embers');
+  for(let i=0;i<16;i++){
+    const s = document.createElement('span');
+    s.style.left = (Math.random()*100)+'vw';
+    const size = 2 + Math.random()*3;
+    s.style.width = size+'px'; s.style.height = size+'px';
+    s.style.animationDuration = (6+Math.random()*8)+'s';
+    s.style.animationDelay = (Math.random()*10)+'s';
+    layer.appendChild(s);
+  }
+</script>
+
+</body>
+</html>

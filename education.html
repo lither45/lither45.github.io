@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education — About Me</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="embers" id="embers"></div>
+
+<main class="stage">
+
+  <div class="signpost">
+    <a class="back" href="index.html">&#8592; BACK TO CAMP</a>
+    <nav>
+      <a href="education.html" class="current">Education</a>
+      <a href="hobbies.html">Hobbies</a>
+      <a href="sports.html">Sports</a>
+      <a href="contacts.html">Contacts</a>
+    </nav>
+  </div>
+
+  <div class="page-title">
+    <div class="eyebrow">CHAPTER ONE</div>
+    <h1>Education</h1>
+  </div>
+
+  <section class="poster">
+    <span class="tape tl"></span><span class="tape tr"></span>
+    <h2>The Schoolin' Trail</h2>
+    <div class="poster-sub">— every good rider starts by learnin' the ropes —</div>
+
+    <div class="media-grid">
+      <div>
+        <div class="frame">
+          <div class="photo-slot">
+            <!-- 🖼️ Replace "graduation.jpg" with your actual photo file name -->
+            <img src="GradPic.jpg" alt="Graduation photo" class="photo-img">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="frame">
+          <div class="photo-slot">
+            <!-- 🖼️ Replace "school-campus.jpg" with your actual photo file name -->
+            <img src="GradPic2.jpg" alt="School / campus photo" class="photo-img">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="entry">
+      <span class="when">[2011] – [2019]</span>
+      <div class="entry-head">
+        <div class="school-logo">
+          <!-- 🏫 Replace "elementary-logo.png" with your actual logo file name -->
+          <img src="Loakan-removebg-preview.png" alt="Elementary school logo" class="logo-img">
+        </div>
+        <div class="heading">
+          <h3>Loakan Elementary School</h3>
+        </div>
+      </div>
+      <p>My learning journey began in elementary school, where I discovered the joy of exploring new ideas, building friendships, and developing the basic skills that became the foundation of my future..</p>
+    </div>
+
+    <div class="entry">
+      <span class="when">[2019] – [2025]</span>
+      <div class="entry-head">
+        <div class="school-logo">
+          <!-- 🏫 Replace "high-school-logo.png" with your actual logo file name -->
+          <img src="MilAn-removebg-preview.png" alt="High school logo" class="logo-img">
+        </div>
+        <div class="heading">
+          <h3>Mil-an National High School</h3>
+        </div>
+      </div>
+      <p>High school challenged me to grow beyond the basics. Through academics, teamwork, and new experiences, I gained confidence, strengthened my abilities, and prepared myself for bigger opportunities.</p>
+    </div>
+
+    <div class="entry">
+      <span class="when">[2025] – [Present]</span>
+      <div class="entry-head">
+        <div class="school-logo">
+          <!-- 🏫 Replace "university-logo.png" with your actual logo file name -->
+          <img src="UCLogo.jpg" alt="College or university logo" class="logo-img">
+        </div>
+        <div class="heading">
+          <h3>University of the Cordilleras</h3>
+        </div>
+      </div>
+      <p>College became the chapter where I turned knowledge into purpose. By taking on challenges, improving my skills, and pursuing my goals, I grew into a more capable and determined individual ready for the next stage of life.</p>
+    </div>
+
+  </section>
+
+</main>
+
+<script>
+  const layer = document.getElementById('embers');
+  for(let i=0;i<16;i++){
+    const s = document.createElement('span');
+    s.style.left = (Math.random()*100)+'vw';
+    const size = 2 + Math.random()*3;
+    s.style.width = size+'px'; s.style.height = size+'px';
+    s.style.animationDuration = (6+Math.random()*8)+'s';
+    s.style.animationDelay = (Math.random()*10)+'s';
+    layer.appendChild(s);
+  }
+</script>
+
+</body>
+</html>

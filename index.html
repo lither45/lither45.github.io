@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me — A Cowboy's Tale</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="embers" id="embers"></div>
+
+<main class="stage">
+
+  <div class="title-wrap">
+    <div class="eyebrow">— HOWDY, PARDNER —</div>
+    <h1 class="big-title">ABOUT ME</h1>
+    <div class="subtitle">A Cowboy's Tale</div>
+  </div>
+
+  <div class="hero-portrait">
+    <div class="portrait-frame">
+      <div class="portrait-slot">
+        <!-- 🖼️ Replace "your-photo.jpg" with your actual photo file name -->
+        <img src="MedalTao.jpg" alt="Portrait photo" class="portrait-img">
+      </div>
+    </div>
+    <div class="hero-text">
+      <p class="hero-name">Keith Reign Zyril E. Desot</p>
+      <p class="hero-tagline"><b>Future Criminologist - Sports Enthusiast - Equestrian</b></p>
+      <p class="hero-tagline">----------------------------------------------</p>
+      <p class="hero-tagline">"You may have a cowboy hat, spurs, chaps, and a horse but you’re not a cowboy till you can ride like one."</p>
+    </div>
+  </div>
+
+  <div class="rope-divider"></div>
+
+  <ul class="menu">
+    <li><a href="education.html">Education <span class="tag">the schoolin' trail</span></a></li>
+    <li><a href="hobbies.html">Hobbies <span class="tag">what fills the saddlebags</span></a></li>
+    <li><a href="sports.html">Sports <span class="tag">rodeo & rough riding</span></a></li>
+    <li><a href="contacts.html">Contacts <span class="tag">send word by wire</span></a></li>
+  </ul>
+
+  <div class="footer-note">Pick a trail above, pardner · press on any sign to ride on in</div>
+
+</main>
+
+<script>
+  // simple rising ember/dust particles for ambience
+  const layer = document.getElementById('embers');
+  const COUNT = 22;
+  for(let i=0;i<COUNT;i++){
+    const s = document.createElement('span');
+    const left = Math.random()*100;
+    const dur = 6 + Math.random()*8;
+    const delay = Math.random()*10;
+    const size = 2 + Math.random()*3;
+    s.style.left = left+'vw';
+    s.style.width = size+'px';
+    s.style.height = size+'px';
+    s.style.animationDuration = dur+'s';
+    s.style.animationDelay = delay+'s';
+    layer.appendChild(s);
+  }
+
+  // keyboard nav: Enter activates focused menu item, arrow keys move focus
+  const links = Array.from(document.querySelectorAll('.menu a'));
+  let idx = 0;
+  if(links.length){ links[0].focus(); }
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'ArrowDown'){ idx = Math.min(idx+1, links.length-1); links[idx].focus(); e.preventDefault(); }
+    if(e.key === 'ArrowUp'){ idx = Math.max(idx-1, 0); links[idx].focus(); e.preventDefault(); }
+  });
+</script>
+
+</body>
+</html>
