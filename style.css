@@ -681,6 +681,7 @@ body::before{
   border-radius:6px;
   padding:14px 18px;
   font-size:1rem;
+  min-width:0; /* lets long text below actually shrink/wrap instead of forcing the page wider */
 }
 .contact-list li .icon{
   width:34px; height:34px;
@@ -696,6 +697,7 @@ body::before{
 }
 .contact-list li .val{
   font-weight:bold;
+  overflow-wrap:anywhere; /* wraps long unbroken text (like URLs) instead of overflowing */
 }
 
 @media (max-width:560px){
