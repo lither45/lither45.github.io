@@ -456,11 +456,11 @@ body::before{
    ============================================================ */
 .school-logo{
   flex:none;
-  width:56px;
-  height:56px;
+  width:88px;
+  height:88px;
   border-radius:8px;
   background:transparent;
-  border:2px dashed var(--ink);
+  border:none;
   display:flex;
   align-items:center;
   justify-content:center;
