@@ -450,7 +450,7 @@ body::before{
   font-family:var(--font-caption);
   color:var(--rust);
   letter-spacing:2px;
-  font-size:.8rem;
+  font-size:1.2rem;
   margin-bottom:6px;
 }
 
@@ -544,7 +544,6 @@ body::before{
   min-height:320px;
   aspect-ratio:4/5;
   background:transparent;
-  border:2px dashed var(--ink);
   border-radius:4px;
   display:flex;
   align-items:center;
@@ -563,7 +562,6 @@ body::before{
   min-height: 0%;
   aspect-ratio:16/9;
   background:transparent;
-  border:2px dashed var(--ink);
   border-radius:4px;
   display:flex;
   align-items:center;
