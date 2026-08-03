@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work Experience — About Me</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="embers" id="embers"></div>
+
+<main class="stage">
+
+  <div class="signpost">
+    <a class="back" href="index.html">&#8592; BACK TO CAMP</a>
+    <nav>
+      <a href="education.html">Education</a>
+      <a href="hobbies.html">Hobbies</a>
+      <a href="sports.html">Sports</a>
+      <a href="work-experience.html" class="current">Work Experience</a>
+      <a href="contacts.html">Contacts</a>
+    </nav>
+  </div>
+
+  <div class="page-title">
+    <div class="eyebrow">CHAPTER FOUR</div>
+    <h1>Work Experience</h1>
+  </div>
+
+  <section class="poster">
+    <span class="tape tl"></span><span class="tape tr"></span>
+    <h2>Trails I've Worked</h2>
+    <div class="poster-sub">— the jobs and hustle that earned the keep —</div>
+
+    <div class="media-grid">
+      <div class="reel-frame">
+        <div class="video-slot portrait">
+          <!-- 🎬 Replace "work-video.mp4" with your actual video file name -->
+          <video src="WorkExperience.mp4" controls autoplay muted loop playsinline class="video-el"></video>
+        </div>
+      </div>
+
+      <div>
+        <div class="frame">
+          <!-- 🖼️ Replace "work-photo.jpg" with your actual photo file name -->
+          <div class="photo-slot portrait">
+            <img src="WorkExperiencePic2.jpg" alt="Work photo" class="photo-img">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="media-grid">
+      <div style="max-width:100%;">
+        <div class="frame">
+          <!-- 🖼️ Replace "work-landscape.jpg" with your actual photo file name -->
+          <div class="photo-slotLandscape">
+            <img src="WorkExperiencePic1.jpg" alt="Work landscape photo" class="photo-img">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <span class="when">2023 – Present</span>
+      <h3>Horse Handler</h3>
+      <p>
+          Assisted in the daily care, grooming, feeding, and handling of horses while ensuring their health, safety, and proper management during activities and events.
+          <br><br>
+
+          <strong>Animal Welfare Seminar</strong> – Participated in an Animal Welfare Seminar held in Baguio City, gaining knowledge on responsible animal care, proper handling practices, and animal welfare standards.
+          <br><br>
+
+          <strong>Kabajo Handlers Association Certificate</strong> – Awarded a certificate recognizing training and participation as a horse handler, demonstrating competence in horse care, handling, and safety practices.
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+<script>
+  const layer = document.getElementById('embers');
+  for(let i=0;i<16;i++){
+    const s = document.createElement('span');
+    s.style.left = (Math.random()*100)+'vw';
+    const size = 2 + Math.random()*3;
+    s.style.width = size+'px'; s.style.height = size+'px';
+    s.style.animationDuration = (6+Math.random()*8)+'s';
+    s.style.animationDelay = (Math.random()*10)+'s';
+    layer.appendChild(s);
+  }
+</script>
+
+</body>
+</html>
