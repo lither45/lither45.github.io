@@ -226,6 +226,20 @@ body::before{
   margin:0;
 }
 
+/* quote sits OUTSIDE the boxed name/tagline card, below it —
+   plain text, no background or border */
+.hero-quote{
+  max-width:480px;
+  margin:16px auto 0;
+  text-align:center;
+  font-family:var(--font-body);
+  font-style:italic;
+  color:var(--parchment-dark);
+  font-size:.85rem;
+  letter-spacing:.5px;
+  line-height:1.5;
+}
+
 /* menu of wooden signs — compact row beneath the portrait */
 .menu{
   list-style:none;
